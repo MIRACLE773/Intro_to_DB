@@ -1,15 +1,15 @@
--- Create the database if it doesn't exist
+-- Create the database
 CREATE DATABASE IF NOT EXISTS alx_book_store;
 USE alx_book_store;
 
--- Create authors table
+-- Create Authors table
 CREATE TABLE IF NOT EXISTS authors (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
+    author_name VARCHAR(255) NOT NULL,
     biography TEXT
 );
 
--- Create books table
+-- Create Books table
 CREATE TABLE IF NOT EXISTS books (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -19,14 +19,14 @@ CREATE TABLE IF NOT EXISTS books (
     FOREIGN KEY (author_id) REFERENCES authors(id)
 );
 
--- Create customers table
+-- Create Customers table
 CREATE TABLE IF NOT EXISTS customers (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
+    customer_name VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL
 );
 
--- Create orders table
+-- Create Orders table
 CREATE TABLE IF NOT EXISTS orders (
     id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT,
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS orders (
     FOREIGN KEY (customer_id) REFERENCES customers(id)
 );
 
--- Create order_details table
+-- Create Order_Details table
 CREATE TABLE IF NOT EXISTS order_details (
     id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
