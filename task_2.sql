@@ -19,11 +19,12 @@ CREATE TABLE IF NOT EXISTS books (
     FOREIGN KEY (author_id) REFERENCES authors(id)
 );
 
--- Create Customers table
+-- Create Customers table (fixed fields!)
 CREATE TABLE IF NOT EXISTS customers (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL
+    customer_name VARCHAR(215) NOT NULL,
+    email VARCHAR(215) UNIQUE NOT NULL,
+    address TEXT
 );
 
 -- Create Orders table
@@ -40,6 +41,3 @@ CREATE TABLE IF NOT EXISTS order_details (
     order_id INT,
     book_id INT,
     quantity INT NOT NULL,
-    FOREIGN KEY (order_id) REFERENCES orders(id),
-    FOREIGN KEY (book_id) REFERENCES books(id)
-);
